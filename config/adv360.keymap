@@ -17,6 +17,19 @@
             bindings = <&kp RET>;
         };
 
+        rofi: rofi {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp ENTER>,
+                <&macro_release>;
+
+            label = "ROFI";
+        };
+
         #endif
 
         hml: homerow_mods_left {
@@ -51,6 +64,15 @@
     };
 
     macros {
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        rofi-shortcut {
+            bindings = <&rofi>;
+            key-positions = <30 31 32>;
+        };
     };
 
     keymap {
